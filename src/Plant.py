@@ -1,5 +1,5 @@
 class Plant:
-    #Gets an onj's attributes
+    #Gets an obj's attributes
     def getName(self) -> str:
         return self.__name
     def getWatering_interval(self) -> tuple or int:
@@ -19,7 +19,7 @@ class Plant:
     def setLast_watered(self,new_watering):
         self.__last_watered = new_watering
 
-    #When obj is initialized, it sets a name, period between watering, what time the plant is watered, and when the plant was last watered
+    #When obj is initialized, this sets a name, period between watering, what time the plant is watered, and when the plant was last watered
     def __init__(self,plant_name, plant_watering_interval, plant_watering_time, plant_last_watered):
         self.setName(plant_name)
         self.setWatering_interval(plant_watering_interval)
