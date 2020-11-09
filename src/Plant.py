@@ -1,12 +1,14 @@
+import datetime
+
 class Plant:
     #Gets an obj's attributes
     def getName(self) -> str:
         return self.__name
-    def getWatering_interval(self) -> tuple or int:
+    def getWatering_interval(self) -> datetime.timedelta:
         return self.__watering_interval
-    def getWatering_time(self) -> tuple:
+    def getWatering_time(self) -> datetime.time:
         return self.__watering_time
-    def getLast_watered(self) -> tuple:
+    def getLast_watered(self) -> datetime.datetime:
         return self.__last_watered
 
     #Sets an obj's attributes
