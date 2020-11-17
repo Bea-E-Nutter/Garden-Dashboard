@@ -25,3 +25,11 @@ class Plant:
     def __init__(self,plant_watering_interval = datetime.timedelta(1), plant_last_watered = datetime.datetime.now()):
         self.setWatering_interval(plant_watering_interval)
         self.setLast_watered(plant_last_watered)
+
+    #Returns true if the plant needs water
+    def needsWatering(self, date:datetime.datetime = datetime.datetime.now()) -> bool:
+        return self.timeTilWatering(date).total_seconds() > 0
+
+    #Returns a time delta obj that contains the amount of time until the plant needs water
+    def timeTilWatering(self, date: datetime.datetime) -> datetime.timedelta:
+        return date-(self.getLast_watered() + self.getWatering_interval())
