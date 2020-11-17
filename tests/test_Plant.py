@@ -5,12 +5,12 @@
         -functions returning the correct value
         -functions setting the correct value
 """
-import src.Plant as p
+from src.Plant import Plant
 import datetime
 
 
 def test_types():
-    testing = p.Plant()
+    testing = Plant()
     assert type(testing.getName()) is str
     assert type(testing.getLast_watered()) is datetime.datetime
     assert type(testing.getWatering_interval()) is datetime.timedelta
@@ -18,15 +18,18 @@ def test_types():
 
 
 def test_getting():
-    parameters = ("name",datetime.timedelta(2), datetime.datetime.now().time(),datetime.datetime.now())
-    testing = p.Plant(parameters[0],parameters[1],parameters[2],parameters[3])
-    assert testing.getName() == parameters[0]
-    assert testing.getWatering_interval() == parameters[1]
-    assert testing.getWatering_time() == parameters[2]
-    assert testing.getLast_watered() == parameters[3]
+    parameters = (datetime.timedelta(2), datetime.datetime.now().time(),datetime.datetime.now())
+    testing = Plant(parameters[0],parameters[1],parameters[2],)
+    assert testing.getWatering_interval() == parameters[0]
+    assert testing.getWatering_time() == parameters[1]
+    assert testing.getLast_watered() == parameters[2]
+
+    testName = "test"
+    testing.setName(testName)
+    assert testing.getName() == testName
 
 def test_setting():
-    testing = p.Plant()
+    testing = Plant()
 
     #setting name
     name = "new_name"
