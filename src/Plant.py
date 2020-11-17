@@ -21,8 +21,7 @@ class Plant:
     def setLast_watered(self,new_watering):
         self.__last_watered = new_watering
 
-    #When obj is initialized, this sets a name, period between watering, what time the plant is watered, and when the plant was last watered
-    def __init__(self,plant_watering_interval = datetime.timedelta(1), plant_watering_time = datetime.datetime.now().time(), plant_last_watered = datetime.datetime.now()):
+    #When obj is initialized a period between watering and when the plant was last watered
+    def __init__(self,plant_watering_interval = datetime.timedelta(1), plant_last_watered = datetime.datetime.now()):
         self.setWatering_interval(plant_watering_interval)
-        self.setWatering_time(plant_watering_time)
         self.setLast_watered(plant_last_watered)

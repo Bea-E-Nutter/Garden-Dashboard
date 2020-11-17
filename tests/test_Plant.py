@@ -11,6 +11,10 @@ import datetime
 
 def test_types():
     testing = Plant()
+    testing.setName("")
+    testing.setLast_watered(datetime.datetime.now())
+    testing.setWatering_interval(datetime.timedelta(0))
+    testing.setWatering_time(datetime.datetime.now().time())
     assert type(testing.getName()) is str
     assert type(testing.getLast_watered()) is datetime.datetime
     assert type(testing.getWatering_interval()) is datetime.timedelta
@@ -18,11 +22,14 @@ def test_types():
 
 
 def test_getting():
-    parameters = (datetime.timedelta(2), datetime.datetime.now().time(),datetime.datetime.now())
-    testing = Plant(parameters[0],parameters[1],parameters[2],)
+    parameters = (datetime.timedelta(2),datetime.datetime.now())
+    testing = Plant(parameters[0],parameters[1])
     assert testing.getWatering_interval() == parameters[0]
-    assert testing.getWatering_time() == parameters[1]
-    assert testing.getLast_watered() == parameters[2]
+    assert testing.getLast_watered() == parameters[1]
+
+    watering_time = testing.setWatering_time(datetime.time(3))
+    testing.setWatering_time(watering_time)
+    assert testing.getWatering_time() == watering_time
 
     testName = "test"
     testing.setName(testName)
