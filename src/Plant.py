@@ -28,8 +28,8 @@ class Plant:
 
     #Returns true if the plant needs water
     def needsWatering(self, date:datetime.datetime = datetime.datetime.now()) -> bool:
-        return self.timeTilWatering(date).total_seconds() > 0
+        return self.timeTilWatering(date).total_seconds() <= 0
 
     #Returns a time delta obj that contains the amount of time until the plant needs water
     def timeTilWatering(self, date: datetime.datetime) -> datetime.timedelta:
-        return date-(self.getLast_watered() + self.getWatering_interval())
+        return (self.getLast_watered() + self.getWatering_interval())-date
