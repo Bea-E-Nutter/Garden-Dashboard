@@ -22,12 +22,13 @@ def test_types():
 
 
 def test_getting():
-    parameters = (datetime.timedelta(2),datetime.datetime.now())
-    testing = Plant(parameters[0],parameters[1])
-    assert testing.getWatering_interval() == parameters[0]
-    assert testing.getLast_watered() == parameters[1]
+    interval = datetime.timedelta(2)
+    date = datetime.datetime(2020,3,29)
+    testing = Plant(interval, date)
+    assert testing.getWatering_interval() == interval
+    assert testing.getLast_watered() == date
 
-    watering_time = testing.setWatering_time(datetime.time(3))
+    watering_time = datetime.time(3)
     testing.setWatering_time(watering_time)
     assert testing.getWatering_time() == watering_time
 
@@ -57,3 +58,4 @@ def test_setting():
     watering = datetime.date(5,6,7)
     testing.setLast_watered(watering)
     assert testing.getLast_watered() == watering
+    
