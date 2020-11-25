@@ -4,9 +4,7 @@ class Plant:
 
     #When obj is initialized a period between watering and when the plant was last watered
     def __init__(self,plant_watering_interval = datetime.timedelta(1), plant_last_watered = datetime.datetime.now()):
-        self._name = ""
         self._last_watered = plant_last_watered
-        self._watering_time = datetime.time(0)
         self._watering_interval = plant_watering_interval
 
     @property
